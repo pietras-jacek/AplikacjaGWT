@@ -48,7 +48,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 
 		
 			datastore.put(pet);
-			return "Hello, "+p.getOwnerName()+", you've requested to create a pet named "+p.getPetName();
+			return "Witaj, "+p.getOwnerName()+", właśnie dodałeś zwierzaka o imieniu: "+p.getPetName();
 		}
 		catch(Exception e){
             e.printStackTrace();
@@ -105,7 +105,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
             // then, get the entity from that key
             Entity petEntity = datastore.get(petKey);
             
-            petEntity.setProperty("petName",p.getPetName());
+            petEntity.setProperty("pet Name",p.getPetName());
             petEntity.setProperty("petType",p.getPetType());
             petEntity.setProperty("petColor",p.getPetColor());
             petEntity.setProperty("petAge", p.getPetAge());
@@ -116,7 +116,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
             
             datastore.put(petEntity);
             
-    		return "You have updated the pet.";
+    		return "Zaktualizowałeś zwierzaka.";
 
 		}
 		catch(Exception e){
@@ -137,7 +137,7 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
             Key petKey = KeyFactory.stringToKey(keyString);
 
             datastore.delete(petKey);
-    		return "You have deleted the pet.";
+    		return "Usunąłeś zwierzaka.";
 
 		}
 		catch(Exception e){

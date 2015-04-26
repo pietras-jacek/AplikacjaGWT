@@ -58,23 +58,23 @@ public class PetApplication implements EntryPoint {
 		final HorizontalPanel ownerPanel = new HorizontalPanel();
 		final Label lastUpdatedLabel = new Label();
 
-		refreshButton = new Button("Refresh All Pets");
+		refreshButton = new Button("Odświerz listę zwierzaków");
 
-		openNewPetDialogButton = new Button("Create a Pet");
+		openNewPetDialogButton = new Button("Dodaj zwierzaka");
 
 		statusLabel = new Label();
 		petsFlexTable = new FlexTable();
 		
 		
 		// header for pets table		
-	    petsFlexTable.setText(0, 0, "Owner");
-	    petsFlexTable.setText(0, 1, "Pet Name");
-	    petsFlexTable.setText(0, 2, "Type");
-	    petsFlexTable.setText(0, 3, "Color");
-	    petsFlexTable.setText(0, 4, "Age");
-	    petsFlexTable.setText(0, 5, "Gender");
-		petsFlexTable.setText(0, 6, "Edit");
-	    petsFlexTable.setText(0, 7, "Remove");
+	    petsFlexTable.setText(0, 0, "Właściciel");
+	    petsFlexTable.setText(0, 1, "Imię zwierzaka");
+	    petsFlexTable.setText(0, 2, "Rodzaj");
+	    petsFlexTable.setText(0, 3, "Kolor");
+	    petsFlexTable.setText(0, 4, "Wiek");
+	    petsFlexTable.setText(0, 5, "Płeć");
+		petsFlexTable.setText(0, 6, "Edytuj");
+	    petsFlexTable.setText(0, 7, "Usuń");
 
 	    // apply formatting for the table
 	    petsFlexTable.getRowFormatter().addStyleName(0, "petListHeader");
@@ -215,7 +215,7 @@ public class PetApplication implements EntryPoint {
 				    
 				    
 				    // adding the edit button in each row
-				    Button editPetButton = new Button("Edit");
+				    Button editPetButton = new Button("Edytuj");
 				    
 				    editPetButton.addClickHandler(new ClickHandler() {
 				      public void onClick(ClickEvent event) {
@@ -277,7 +277,7 @@ public class PetApplication implements EntryPoint {
 	    	Button newPetButton;
 	    		    	
 			setAnimationEnabled(true);
-			Button cancelButton = new Button("Cancel");
+			Button cancelButton = new Button("Anuluj");
 
 			final FlexTable newPetFlexTable = new FlexTable();
 			final TextBox newOwnerNameField = new TextBox();
@@ -289,24 +289,24 @@ public class PetApplication implements EntryPoint {
 			
 			// Populate the gender listbox
 			ArrayList<String> gender_list = new ArrayList<String>();
-			gender_list.add("Male");
-			gender_list.add("Female");
-			gender_list.add("Unknown");
+			gender_list.add("Samiec");
+			gender_list.add("Samica");
+			gender_list.add("Nieokreślona");
 			for(String s:gender_list){
 				newPetGenderField.addItem(s);
 			}
 
-			newPetFlexTable.setText(0, 0, "Owner Name:");
+			newPetFlexTable.setText(0, 0, "Imię własciciela:");
 			newPetFlexTable.setWidget(0, 1, newOwnerNameField);
-			newPetFlexTable.setText(1, 0, "Pet Name:");
+			newPetFlexTable.setText(1, 0, "Imię zwierzaka:");
 			newPetFlexTable.setWidget(1, 1, newPetNameField);
-			newPetFlexTable.setText(2, 0, "Pet Type:");
+			newPetFlexTable.setText(2, 0, "Rodzaj zwierzaka:");
 			newPetFlexTable.setWidget(2, 1, newPetTypeField);
-			newPetFlexTable.setText(3, 0, "Pet Color:");
+			newPetFlexTable.setText(3, 0, "Kolor zwierzaka:");
 			newPetFlexTable.setWidget(3, 1, newPetColorField);
-			newPetFlexTable.setText(4, 0, "Pet Age:");
+			newPetFlexTable.setText(4, 0, "Wiek zwierzaka:");
 			newPetFlexTable.setWidget(4, 1, newPetAgeField);
-			newPetFlexTable.setText(5, 0, "Pet Gender:");
+			newPetFlexTable.setText(5, 0, "Płeć zwierzaka:");
 			newPetFlexTable.setWidget(5, 1, newPetGenderField);
 
 			newPetFlexTable.setWidget(6, 1, cancelButton);
@@ -328,8 +328,8 @@ public class PetApplication implements EntryPoint {
 
 	    	if(p == null){
 	    		// create a new pet
-				newPetButton = new Button("Create Pet");
-				setHTML("Create a new pet");
+				newPetButton = new Button("Zapisz zwierzaka");
+				setHTML("Dodaj nowego zwierzaka");
 				newPetButton.addClickHandler(new ClickHandler(){
 					public void onClick(ClickEvent event){
 						
@@ -347,8 +347,8 @@ public class PetApplication implements EntryPoint {
 			
 	    	else{
 	    		// edit existing pet
-	    		newPetButton = new Button("Update Pet");
-				setHTML("Update an existing pet");
+	    		newPetButton = new Button("Zaktualizuj zwierzaka");
+				setHTML("Zaktualizuj istniejącego zwierzaka");
 				
 				newOwnerNameField.setText(p.getOwnerName());
 				newPetNameField.setText(p.getPetName());
